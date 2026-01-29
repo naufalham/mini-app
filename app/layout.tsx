@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Source_Code_Pro } from "next/font/google";
 import { SafeArea } from "@coinbase/onchainkit/minikit";
-import { minikitConfig } from "../minikit.config";
 import { RootProvider } from "./rootProvider";
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -31,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <RootProvider>
+          <SafeArea>{children}</SafeArea>
+        </RootProvider>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useQuickAuth,useMiniKit } from "@coinbase/onchainkit/minikit";
+import { useQuickAuth, useMiniKit } from "@coinbase/onchainkit/minikit";
 import { useRouter } from "next/navigation";
 import { minikitConfig } from "../minikit.config";
 import styles from "./page.module.css";
@@ -44,10 +44,10 @@ export default function AIContentGenerator() {
         setHooks(data.hooks);
         setStep('select-hook');
       } else {
-        alert("Gagal generate hooks. Coba lagi!");
+        alert("Gagal generate hooks: " + (data.error || JSON.stringify(data)));
       }
     } catch (error) {
-      alert("Gagal koneksi ke server!");
+      alert("Gagal koneksi ke server: " + (error as Error).message);
     } finally {
       setLoading(false);
     }
