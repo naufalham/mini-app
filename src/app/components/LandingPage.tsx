@@ -10,9 +10,7 @@ export default function LandingPage() {
         {/* Header */}
         <header className="px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-4 h-4 text-white" />
-            </div>
+            <img src="/logo.png" alt="Bit AI" className="w-7 h-7" />
             <span className="font-bold text-lg">Bit AI</span>
           </div>
           <button className="px-4 py-1.5 border border-blue-500 text-blue-400 rounded-lg text-sm">
