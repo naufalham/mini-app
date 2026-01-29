@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ArrowLeft, Zap, Copy, RotateCcw, Home, CreditCard, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Zap, Copy, RotateCcw, ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import PreviewPublish from './PreviewPublish';
+import Navbar from './Navbar';
 
 type PersonalityType = 'Funny & Engaging' | 'Professional & Informative' | 'Bold & Provocative' | 'Casual & Friendly' | 'Technical & Detailed';
 
@@ -156,33 +157,7 @@ export default function AIContentStudio() {
           </div>
         )}
 
-        {/* Bottom Navigation - hidden when showing hooks */}
-        {step !== 'hooks' && (
-          <nav className="fixed bottom-0 left-0 right-0 bg-[#0F1328] border-t border-blue-900/30 px-4 py-3">
-            <div className="max-w-[430px] mx-auto flex items-center justify-around">
-              <button
-                onClick={() => navigate('/dashboard')}
-                className="flex flex-col items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                <Home className="w-5 h-5" />
-                <span className="text-xs">Home</span>
-              </button>
-              <button className="flex flex-col items-center gap-1 -mt-8">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/50 mb-1">
-                  <Zap className="w-7 h-7 text-white" fill="currentColor" />
-                </div>
-                <span className="text-xs text-blue-400 font-semibold">AI Studio</span>
-              </button>
-              <button
-                onClick={() => navigate('/wallet')}
-                className="flex flex-col items-center gap-1 text-gray-400 hover:text-blue-400 transition-colors"
-              >
-                <CreditCard className="w-5 h-5" />
-                <span className="text-xs">Balance</span>
-              </button>
-            </div>
-          </nav>
-        )}
+        <Navbar hidden={step === 'hooks'} />
       </div>
     </div>
   );
